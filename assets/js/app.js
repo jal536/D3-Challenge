@@ -24,7 +24,7 @@ var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 
-d3.csv("../assets/data/data.csv").then(function(Data) {
+d3.csv("../assets/data/infections_timeseries.csv").then(function(Data) {
 
     // number conversion
     Data.forEach(function(xdata) {
@@ -91,7 +91,7 @@ d3.csv("../assets/data/data.csv").then(function(Data) {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .classed("aText", true)
-        .text("Lacks Healthcare (%)");
+        .text("# of Cases");
 
     // x axis
     chartGroup.append("text")
@@ -99,7 +99,7 @@ d3.csv("../assets/data/data.csv").then(function(Data) {
         .attr("x", width / 2)
         .attr("dy", "1em")
         .classed("aText", true)
-        .text("In Poverty (%)");
+        .text("Date");
 
 
 });
