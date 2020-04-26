@@ -28,20 +28,20 @@ d3.csv("../assets/data/infections_timeseries.csv").then(function(Data) {
 
     // number conversion
     Data.forEach(function(xdata) {
-        xdata.poverty = +xdata.poverty;
-        xdata.healthcare = +xdata.healthcare;
+        xdata.Jan22 = +xdata.Jan22;
+        xdata.Combined_Key = +xdata.Combined_Key;
 
     });
 
     // x function
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(Data, d=>d.poverty)*0.9,
-            d3.max(Data, d => d.poverty)*1.1])
-        .range([0, width]);
+        .domain([d3.min(Data, d=>d.Jan22)*0.9,
+            d3.max(Data, d => d.Jan22)*1.1])
+        .range([0, width]);        
 
     // y function
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(Data, d => d.healthcare)*1.1])
+        .domain([0, d3.max(Data, d => d.Combined_Key)*1.1])
         .range([height, 0]);
 
     // set bottom/left axes
@@ -64,8 +64,8 @@ d3.csv("../assets/data/infections_timeseries.csv").then(function(Data) {
         .data(Data)
         .enter()
         .append("circle")
-        .attr("cx", d => xLinearScale(d.poverty))
-        .attr("cy", d => yLinearScale(d.healthcare))
+        .attr("cx", d => xLinearScale(d.Jan22))
+        .attr("cy", d => yLinearScale(d.Combined_Key))
         .attr("r", 10)
         .attr("fill", "lightblue")
         .attr("opacity", ".99");
@@ -77,8 +77,8 @@ d3.csv("../assets/data/infections_timeseries.csv").then(function(Data) {
         .append("text")
         .classed("my-text",true)
         .text(d => d.abbr)
-        .attr("x", d => xLinearScale(d.poverty))
-        .attr("y", d => yLinearScale(d.healthcare))
+        .attr("x", d => xLinearScale(d.Jan22))
+        .attr("y", d => yLinearScale(d.Combined_Key))
         .attr("dy",5)
         .attr("text-anchor","middle")
         .attr("font-size","12px")
