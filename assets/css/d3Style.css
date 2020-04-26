@@ -52,6 +52,12 @@
   border-radius: 4px;
 }
 
+.axis path, line {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+}
+
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
   .stateText {

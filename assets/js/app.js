@@ -101,5 +101,6 @@ d3.csv("../assets/data/infections_timeseries.csv").then(function(Data) {
         .classed("aText", true)
         .text("Date");
 
+    
 
 });
